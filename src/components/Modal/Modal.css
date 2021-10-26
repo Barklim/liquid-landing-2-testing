@@ -29,6 +29,11 @@
   color: red;
 }
 
+.modal__testingText {
+  /* margin: auto 60px; */
+  padding-inline-start: 1.9rem;
+  padding-top: 6px;
+}
 .modal__formControl {
   margin-bottom: 21px;
 }
@@ -87,6 +92,11 @@ input {
   /* margin: auto 94px; */
   margin: auto 60px;
 }
+.modal__body_testing {
+  /* margin-top: 50px; */
+  margin: auto 60px;
+  margin-top: 70px;
+}
 
 .modal__agreement {
   display: flex;
@@ -136,6 +146,10 @@ input {
   }
   .label {
     text-align: left;
+  }
+  .modal__body_testing {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

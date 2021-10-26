@@ -2,6 +2,7 @@ import React from "react";
 import "./HomePage.css";
 
 import { Helmet } from "react-helmet";
+import Config from "../utils/config";
 
 import logo from "../assets/logo.svg";
 import { ReactComponent as Chat } from "../assets/Chat.svg";
@@ -41,16 +42,32 @@ import PdfModal from "../components/Pdf";
 function HomePage() {
   const getClick = () => {
     // https://www.youtube.com/watch?v=_SCMoKB5Nko&t=464s&ab_channel=ITLeaderAssistant
-    // window.ym(85672684, "reachGoal", "buttonpoluchit1");
+    if (Config.isProd) {
+      Config.isTesting
+        ? window.ym(85672684, "reachGoal", "download1")
+        : window.ym(85672684, "reachGoal", "buttonpoluchit1");
+    }
   };
   const getClickPhone = () => {
-    // window.ym(85672684, "reachGoal", "buttonpoluchit1");
+    if (Config.isProd) {
+      Config.isTesting
+        ? window.ym(85672684, "reachGoal", "download1")
+        : window.ym(85672684, "reachGoal", "buttonpoluchit1");
+    }
   };
   const getClick2 = () => {
-    // window.ym(85672684, "reachGoal", "buttonpoluchit2");
+    if (Config.isProd) {
+      Config.isTesting
+        ? window.ym(85672684, "reachGoal", "download2")
+        : window.ym(85672684, "reachGoal", "buttonpoluchit2");
+    }
   };
   const getClickPhone2 = () => {
-    // window.ym(85672684, "reachGoal", "buttonpoluchit2");
+    if (Config.isProd) {
+      Config.isTesting
+        ? window.ym(85672684, "reachGoal", "download2")
+        : window.ym(85672684, "reachGoal", "buttonpoluchit2");
+    }
   };
 
   return (
@@ -98,18 +115,20 @@ function HomePage() {
               <br />
               в&nbsp;России
             </div>
-            {/* <div className="mainView__bottomText">
-              Возьми&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей&nbsp;за&nbsp;несколько
-              минут&nbsp;даже&nbsp;с&nbsp;плохой&nbsp;кредитной&nbsp;историей
-            </div> */}
-            {/* Testing */}
-            <div className="mainView__bottomText">
-              Установи&nbsp;приложение&nbsp;и
-              <br />
-              возьми&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей
-              <br />
-              даже&nbsp;с&nbsp;плохой&nbsp;кредитной&nbsp;историей
-            </div>
+            {Config.isTesting ? (
+              <div className="mainView__bottomText">
+                Установи&nbsp;приложение&nbsp;и
+                <br />
+                возьми&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей
+                <br />
+                даже&nbsp;с&nbsp;плохой&nbsp;кредитной&nbsp;историей
+              </div>
+            ) : (
+              <div className="mainView__bottomText">
+                Возьми&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей&nbsp;за&nbsp;несколько
+                минут&nbsp;даже&nbsp;с&nbsp;плохой&nbsp;кредитной&nbsp;историей
+              </div>
+            )}
             <div className="modalHomePage" onClick={() => getClick()}>
               <ModalHomePage />
             </div>
@@ -125,19 +144,22 @@ function HomePage() {
         <div className="group">
           <Group className="group__img" />
         </div>
-        {/* <div className="mainView__subText_Mobile">
-          Возьми&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей&nbsp;за&nbsp;несколько
-          <br />
-          минут&nbsp;даже&nbsp;с&nbsp;плохой&nbsp;кредитной&nbsp;историей
-        </div> */}
-        {/* Testing */}
-        <div className="mainView__subText_Mobile mainView__subText_Mobile_testing">
-          Установи&nbsp;приложение&nbsp;и&nbsp;
-          <br />
-          возьми&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей
-          <br />
-          даже&nbsp;с&nbsp;плохой&nbsp;кредитной&nbsp;историей
-        </div>
+        {Config.isTesting ? (
+          <div className="mainView__subText_Mobile mainView__subText_Mobile_testing">
+            Установи&nbsp;приложение&nbsp;и&nbsp;
+            <br />
+            возьми&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей
+            <br />
+            даже&nbsp;с&nbsp;плохой&nbsp;кредитной&nbsp;историей
+          </div>
+        ) : (
+          <div className="mainView__subText_Mobile">
+            Возьми&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей&nbsp;за&nbsp;несколько
+            <br />
+            минут&nbsp;даже&nbsp;с&nbsp;плохой&nbsp;кредитной&nbsp;историей
+          </div>
+        )}
+
         <div className="modalHomePage_Mobile" onClick={() => getClickPhone()}>
           <ModalHomePage />
         </div>
@@ -505,17 +527,20 @@ function HomePage() {
         </div>
         <div className="phone">
           <PhoneBack className="phone__imgBack" />
-          {/* <div className="phone__header">
-            Получите&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей
-            <br />
-            в&nbsp;Ликвид&nbsp;кредит
-          </div> */}
-          {/* Testing */}
-          <div className="phone__header">
-            Получите&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей
-            <br />
-            в&nbsp;приложении&nbsp;Ликвид&nbsp;кредит
-          </div>
+          {Config.isTesting ? (
+            <div className="phone__header">
+              Получите&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей
+              <br />
+              в&nbsp;приложении&nbsp;Ликвид&nbsp;кредит
+            </div>
+          ) : (
+            <div className="phone__header">
+              Получите&nbsp;до&nbsp;30&nbsp;000&nbsp;рублей
+              <br />
+              в&nbsp;Ликвид&nbsp;кредит
+            </div>
+          )}
+
           <div className="button_phone">
             <div
               className="modalHomePage modalHomePage_white"
@@ -528,23 +553,26 @@ function HomePage() {
         </div>
         <div className="phone_Mobile">
           <PhoneBack className="phone__imgBack_Mobile" />
-          {/* <div className="phone__header_Mobile">
-            Получите&nbsp;до
-            <br />
-            30&nbsp;000&nbsp;рублей1
-            <br />
-            в&nbsp;Ликвид&nbsp;кредит
-          </div> */}
-          {/* Testing */}
-          <div className="phone__header_Mobile">
-            Получите&nbsp;до
-            <br />
-            30&nbsp;000&nbsp;рублей
-            <br />
-            в&nbsp;приложении&nbsp;
-            <br />
-            Ликвид&nbsp;кредит
-          </div>
+          {Config.isTesting ? (
+            <div className="phone__header_Mobile">
+              Получите&nbsp;до
+              <br />
+              30&nbsp;000&nbsp;рублей
+              <br />
+              в&nbsp;приложении&nbsp;
+              <br />
+              Ликвид&nbsp;кредит
+            </div>
+          ) : (
+            <div className="phone__header_Mobile">
+              Получите&nbsp;до
+              <br />
+              30&nbsp;000&nbsp;рублей
+              <br />
+              в&nbsp;Ликвид&nbsp;кредит
+            </div>
+          )}
+
           <div className="button_phone">
             <div
               className="modalHomePage_Mobile modalHomePage2_Mobile modalHomePage_white"

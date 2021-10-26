@@ -26,6 +26,8 @@ import {
   Box,
 } from "@chakra-ui/react";
 
+import Config from "../../utils/config";
+
 function ModalHomePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -62,18 +64,26 @@ function ModalHomePage() {
 
     setAlert("lq__alert displayVisisble");
 
-    window.ym(85672684, "reachGoal", "send");
+    if (Config.isProd) {
+      Config.isTesting
+        ? window.ym(85672684, "reachGoal", "sendtoapp")
+        : window.ym(85672684, "reachGoal", "send");
+    }
+
+    console.log("WTF");
   };
 
   return (
     <>
-      {/* <Button className="button_primary1" onClick={onOpen}>
-        Получить
-      </Button> */}
-      {/* Testing */}
-      <Button className="button_primary1" onClick={onOpen}>
-        Загрузить
-      </Button>
+      {Config.isTesting ? (
+        <Button className="button_primary1" onClick={onOpen}>
+          Скачать
+        </Button>
+      ) : (
+        <Button className="button_primary1" onClick={onOpen}>
+          Получить
+        </Button>
+      )}
 
       <Modal
         initialFocusRef={initialRef}
@@ -87,39 +97,53 @@ function ModalHomePage() {
           <form>
             <ModalHeader className="label">Получить кредит</ModalHeader>
             <ModalCloseButton />
-            <ModalBody pb={6} className="modal__body">
+            <ModalBody
+              pb={6}
+              className={
+                Config.isTesting ? "modal__body_testing" : "modal__body"
+              }
+            >
               <div className={alertProp}>
                 <Alert status="success">
                   <AlertIcon />
                   <Box flex="1">
                     <AlertTitle>Успешно отправлено!</AlertTitle>
-                    <AlertDescription display="block">
-                      Мы рассмотрим вашу заявку и ответим в течение следующих 48
-                      часов.
-                    </AlertDescription>
+                    {Config.isTesting ? (
+                      <AlertDescription display="block">
+                        Cпасибо за заявку. Приложение в разработке, мы отправим
+                        вам SMS когда приложение будет готово.
+                      </AlertDescription>
+                    ) : (
+                      <AlertDescription display="block">
+                        Мы рассмотрим вашу заявку и ответим в течение следующих
+                        48 часов.
+                      </AlertDescription>
+                    )}
                   </Box>
                 </Alert>
               </div>
-              <FormControl className="modal__formControl">
-                <FormLabel>
-                  Имя <span className="label__star">*</span>
-                </FormLabel>
-                <Input
-                  // ref={initialRef}
-                  placeholder="Иван"
-                  name="name"
-                  ref={register({
-                    required: true,
-                    minLength: {
-                      value: 1,
-                      message: "Введите имя",
-                    },
-                  })}
-                />
-                {errors.name?.type === "required" && (
-                  <div className="error">Введите имя</div>
-                )}
-              </FormControl>
+              {!Config.isTesting && (
+                <FormControl className="modal__formControl">
+                  <FormLabel>
+                    Имя <span className="label__star">*</span>
+                  </FormLabel>
+                  <Input
+                    // ref={initialRef}
+                    placeholder="Иван"
+                    name="name"
+                    ref={register({
+                      required: true,
+                      minLength: {
+                        value: 1,
+                        message: "Введите имя",
+                      },
+                    })}
+                  />
+                  {errors.name?.type === "required" && (
+                    <div className="error">Введите имя</div>
+                  )}
+                </FormControl>
+              )}
 
               <FormControl className="modal__formControl">
                 <FormLabel>
@@ -156,20 +180,22 @@ function ModalHomePage() {
                 )}
               </FormControl>
 
-              <FormControl mt={4} className="modal__formControl">
-                <FormLabel>Почта</FormLabel>
-                <Input
-                  placeholder="example@gmail.com"
-                  ref={register({
-                    required: false,
-                    // pattern: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g,
-                  })}
-                  name="email"
-                />
-                {errors.email?.type === "required" && (
-                  <div className="error">Введите почту</div>
-                )}
-              </FormControl>
+              {!Config.isTesting && (
+                <FormControl mt={4} className="modal__formControl">
+                  <FormLabel>Почта</FormLabel>
+                  <Input
+                    placeholder="example@gmail.com"
+                    ref={register({
+                      required: false,
+                      // pattern: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g,
+                    })}
+                    name="email"
+                  />
+                  {errors.email?.type === "required" && (
+                    <div className="error">Введите почту</div>
+                  )}
+                </FormControl>
+              )}
 
               <div className="modal__agreement">
                 <label className="form__customCheckbox">
@@ -196,6 +222,14 @@ function ModalHomePage() {
               </div>
               {errors.agreement?.type === "required" && (
                 <div className="error">Примите соглашение</div>
+              )}
+
+              {Config.isTesting && (
+                <div className="modal__testingText">
+                  На&nbsp;этот&nbsp;номер&nbsp;мы&nbsp;отправим&nbsp;вам
+                  <br />
+                  ссылку&nbsp;на&nbsp;приложение
+                </div>
               )}
             </ModalBody>
 
