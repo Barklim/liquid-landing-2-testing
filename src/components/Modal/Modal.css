@@ -30,9 +30,16 @@
 }
 
 .modal__testingText {
-  /* margin: auto 60px; */
-  padding-inline-start: 1.9rem;
+  margin: auto 60px;
+  margin-top: 10px;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
   padding-top: 6px;
+
+  font-weight: 500;
+  color: #292929;
+  font-size: 20px !important;
+  line-height: 120%;
 }
 .modal__formControl {
   margin-bottom: 21px;
@@ -95,7 +102,25 @@ input {
 .modal__body_testing {
   /* margin-top: 50px; */
   margin: auto 60px;
-  margin-top: 70px;
+  margin-top: 20px;
+}
+
+.successMessage {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* width: 70%; */
+  /* margin: 0 auto; */
+  margin: 0 20px;
+  /* max-width: 400px; */
+  margin-bottom: 30px;
+
+  color: #292929;
+  font-size: 18px;
+  line-height: 130%;
 }
 
 .modal__agreement {
@@ -117,14 +142,18 @@ input {
   font-size: 16px;
 }
 .modal__footer {
-  justify-content: start !important;
+  /* justify-content: start !important; */
   margin: auto 60px;
-  margin-bottom: 39px;
+  /* margin-bottom: 39px; */
+  margin-bottom: 20px;
   padding-bottom: 0;
 }
 
 @media (min-width: 576px) {
   .label__sub_Mobile {
+    display: none;
+  }
+  .modal__testingText_Mobile {
     display: none;
   }
 }
@@ -150,6 +179,15 @@ input {
   .modal__body_testing {
     margin-left: auto;
     margin-right: auto;
+  }
+  .modal__testingText {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding-right: 40px;
+  }
+  .modal__testingText_Desktop {
+    display: none;
   }
 }
 

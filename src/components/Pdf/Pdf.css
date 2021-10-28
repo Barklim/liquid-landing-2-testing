@@ -16,6 +16,9 @@
 .modal__footer {
   justify-content: end !important;
 }
+.modal__footer_testing {
+  justify-content: start !important;
+}
 .chakra-modal__content {
   /* overflow: hidden; */
 }
