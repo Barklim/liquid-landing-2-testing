@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/liquid-landing-2-testing/static/css/main.4d5323d7.chunk.css",
-    "main.js": "/liquid-landing-2-testing/static/js/main.3e343273.chunk.js",
-    "main.js.map": "/liquid-landing-2-testing/static/js/main.3e343273.chunk.js.map",
+    "main.css": "/liquid-landing-2-testing/static/css/main.f127feb6.chunk.css",
+    "main.js": "/liquid-landing-2-testing/static/js/main.47ff8831.chunk.js",
+    "main.js.map": "/liquid-landing-2-testing/static/js/main.47ff8831.chunk.js.map",
     "runtime-main.js": "/liquid-landing-2-testing/static/js/runtime-main.6814c83a.js",
     "runtime-main.js.map": "/liquid-landing-2-testing/static/js/runtime-main.6814c83a.js.map",
     "static/js/2.b325c89e.chunk.js": "/liquid-landing-2-testing/static/js/2.b325c89e.chunk.js",
     "static/js/2.b325c89e.chunk.js.map": "/liquid-landing-2-testing/static/js/2.b325c89e.chunk.js.map",
     "index.html": "/liquid-landing-2-testing/index.html",
-    "static/css/main.4d5323d7.chunk.css.map": "/liquid-landing-2-testing/static/css/main.4d5323d7.chunk.css.map",
+    "static/css/main.f127feb6.chunk.css.map": "/liquid-landing-2-testing/static/css/main.f127feb6.chunk.css.map",
     "static/js/2.b325c89e.chunk.js.LICENSE.txt": "/liquid-landing-2-testing/static/js/2.b325c89e.chunk.js.LICENSE.txt",
     "static/media/BackCL.bf19bdb1.png": "/liquid-landing-2-testing/static/media/BackCL.bf19bdb1.png",
     "static/media/BackDrop.e95a05a2.svg": "/liquid-landing-2-testing/static/media/BackDrop.e95a05a2.svg",
@@ -46,7 +46,7 @@
   "entrypoints": [
     "static/js/runtime-main.6814c83a.js",
     "static/js/2.b325c89e.chunk.js",
-    "static/css/main.4d5323d7.chunk.css",
-    "static/js/main.3e343273.chunk.js"
+    "static/css/main.f127feb6.chunk.css",
+    "static/js/main.47ff8831.chunk.js"
   ]
 }
